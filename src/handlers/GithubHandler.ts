@@ -1,3 +1,4 @@
+import moment from 'moment';
 import {
   GITHUB_CLIENT_ID,
   GITHUB_CLIENT_SECRET,
@@ -312,7 +313,7 @@ export default class GithubHandler {
     } (${stats.runtimePercentile.toFixed(2)}%) | Memory: ${
       stats.memoryDisplay
     } (${stats.memoryPercentile.toFixed(2)}%) - LeetSync`;
-    await this.upload(path, `${problemName}${lang}`, code, msg);
+    await this.upload(path, `${problemName}-${moment().format('YYYYMMDDHHmmss')}${lang}`, code, msg);
   }
 
   async submit(
